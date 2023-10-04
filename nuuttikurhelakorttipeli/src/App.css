@@ -17,3 +17,14 @@ padding: 0 16px;
     display:flex;
     justify-content: space-between;
 }
+.game{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.center-area{
+    text-align: center;
+    align-self: center;
+    min-width: 20vw;
+}
