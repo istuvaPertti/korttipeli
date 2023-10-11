@@ -1,10 +1,10 @@
 .card{
 width:120px;
 height:200px;
-background-color:chocolate;
+background-color:rgb(106, 28, 145);
 border-radius: 8px;
 border: 4px solid black;
-box-shadow: 1px 1px 4px 1px royalblue;
+box-shadow: 1px 1px 4px 1px chocolate;
 
 }
 .stat-list{
@@ -27,4 +27,13 @@ padding: 0 16px;
     text-align: center;
     align-self: center;
     min-width: 20vw;
+}
+.card-list{
+    display: flex;
+}
+.card-list-item.player{
+    margin-left: calc(6vw - 150px);
+}
+.card-list-item.opponent{
+    margin-right: calc(6vw - 150px);
 }
