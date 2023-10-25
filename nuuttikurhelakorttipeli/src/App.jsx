@@ -1,6 +1,6 @@
 import Card from'./components/Card';
 import './App.css'
-
+import PlayButton from './components/PlayButton';
 import { useState } from 'react';
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min +1) + min);
 
@@ -29,10 +29,19 @@ const createCard = (index) =>({
 const deck = Array(16).fill(null).map((_,index) => createCard(index))
 const half = Math.ceil(deck.length /2);
 const dealCards =()=>{
+  shuffle(deck);
   return{
   player: deck.slice(0,half),
   opponent: deck.slice(half)}
 }
+
+  function shuffle(array){
+    for(let i=array.length -1; i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [array[i], array[j]]=[array[j],array[i]];
+    }
+  }
+
 export default function App(){
   const [result, setResult] = useState('');
   const[cards, setCards]= useState(dealCards);
@@ -57,8 +66,9 @@ export default function App(){
     <>
       <h1>Moi</h1>
       <div className='game'>
-        <div className='hand player'>
-         <ul className='card-list'>
+    
+      <div className='hand player'>
+         <ul className='card-list player'>
               {cards.player.map(pCard =>(
                 <li className='card-list-item player'key={pCard.id}>
                   <Card card = {pCard}/>
@@ -66,23 +76,26 @@ export default function App(){
               ))}
          </ul>
         </div>
+
         
         <div className='center-area'>
           <p>{result || 'Press the button'}</p>
-          <button onClick={compareCards} type="button">Play</button>
+          
+          <PlayButton text={'Play'} handleClick={compareCards}/>
         </div>
 
 
         
         <div className='hand opponent'>
-         <ul className='card-list'>
-              {cards.player.map(oCard =>(
-                <li className='card-list-item player'key={oCard.id}>
+         <ul className='card-list opponent'>
+              {cards.opponent.map(oCard =>(
+                <li className='card-list-item opponent'key={oCard.id}>
                   <Card card = {oCard}/>
                 </li>
               ))}
          </ul>
         </div>
+
         </div>
         </>
   );

@@ -31,9 +31,26 @@ padding: 0 16px;
 .card-list{
     display: flex;
 }
+
+.card-list.opponent{
+    direction:rtl;
+}
+
 .card-list-item.player{
     margin-left: calc(6vw - 150px);
 }
 .card-list-item.opponent{
     margin-right: calc(6vw - 150px);
+    direction:ltr;
+}
+.play-button{
+    width:80px;
+    height:40px;
+    align-self:center;
+    font-size:larger;
+    font-weight:bold;
+    background-color:rgb(106, 28, 145);
+    border: 4px solid black;
+box-shadow: 1px 1px 4px 1px rgb(55, 0, 255);
+-webkit-text-fill-color: rgb(255, 255, 255);
 }
